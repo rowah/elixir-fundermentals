@@ -6,15 +6,24 @@ import "./index.css";
 
 //Renders a single button
 class Square extends React.Component {
+  // add a constructor to the Square class to initialize the state
+  constructor(props) {
+    // All React component classes that have a constructor should start with a super(props) call
+    super(props);
+    this.state = {
+      value: null,
+    };
+  }
   render() {
     return (
       <button
         className="square"
-        onClick={function () {
-          console.log("Clicked");
+        onClick={() => {
+          this.setState({ value: "X" });
         }}
       >
-        {this.props.value}
+        {/* state value replaces prpos value */}
+        {this.state.value}
       </button>
     );
   }
