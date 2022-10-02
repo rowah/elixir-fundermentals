@@ -7,14 +7,23 @@ import "./index.css";
 //Renders a single button
 class Square extends React.Component {
   render() {
-    return <button className="square">{/* TODO */}</button>;
+    return (
+      <button
+        className="square"
+        onClick={function () {
+          console.log("Clicked");
+        }}
+      >
+        {this.props.value}
+      </button>
+    );
   }
 }
 
 //renders 9 squares
 class Board extends React.Component {
   renderSquare(i) {
-    return <Square />;
+    return <Square value={i} />;
   }
 
   render() {
@@ -47,10 +56,14 @@ class Board extends React.Component {
 class Game extends React.Component {
   render() {
     return (
+      // renders an outer div
       <div className="game">
+        {/* renders the second largest div */}
         <div className="game-board">
+          {/* class Board then gets called which then calls Square class 9 times thus rendering 9 clickable squares */}
           <Board />
         </div>
+        {/* renders the div next to the game */}
         <div className="game-info">
           <div>{/* status */}</div>
           <ol>{/* TODO */}</ol>
@@ -62,5 +75,6 @@ class Game extends React.Component {
 
 // ========================================
 
+//renders the game inside the div in the html
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<Game />);
