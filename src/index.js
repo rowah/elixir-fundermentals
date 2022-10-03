@@ -1,42 +1,59 @@
-import React from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
 //three React Components Square, Board, Game
 
 //Renders a single button
-class Square extends React.Component {
-  // add a constructor to the Square class to initialize the state
-  constructor(props) {
-    // All React component classes that have a constructor should start with a super(props) call
-    super(props);
-    this.state = {
-      value: null,
-    };
-  }
-  render() {
-    return (
-      <button
-        className="square"
-        onClick={() => {
-          this.setState({ value: "X" });
-        }}
-      >
-        {/* state value replaces prpos value */}
-        {this.state.value}
-      </button>
-    );
-  }
+// class Square extends React.Component {
+//   render() {
+//     return (
+//       <button className="square" onClick={() => this.props.onClick()}>
+//         {this.props.value}
+//       </button>
+//     );
+//   }
+// }
+
+//replaces the Square class with a function component
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
 }
 
 //renders 9 squares
 class Board extends React.Component {
+  // declares the shared state of each square in the parent board component
+  constructor(props) {
+    super(props);
+    this.state = {
+      //board's initail state now contains 9 squares with value of null
+      squares: Array(9).fill(null),
+      xIsNext: true,
+    };
+  }
+  //adds the handleClick() function to the board class
+  handleClick(i) {
+    const squares = this.state.squares.slice();
+    squares[i] = this.state.xIsNext ? "X" : "O";
+    this.setState({ squares: squares, xIsNext: !this.state.xIsNext });
+  }
+  //modifies the method to instruct each square about its current state either "O", "X", or null
   renderSquare(i) {
-    return <Square value={i} />;
+    return (
+      <Square
+        value={this.state.squares[i]}
+        //passes a function from the board which the Square calls on each click
+        onClick={() => this.handleClick(i)}
+      />
+    );
   }
 
   render() {
-    const status = "Next player: X";
+    const status = "Next player: X" + (this.state.xIsNext ? "X" : "O");
 
     return (
       <div>
