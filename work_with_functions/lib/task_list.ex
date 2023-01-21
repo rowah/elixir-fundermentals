@@ -65,7 +65,15 @@ Enum.each [12.5, 30.99, 250.49, 18.80], apply_tax
 #Tip: You’ll need to use the rem/2 and div/2 functions
 
 defmodule MatchstickFactory do
-  def boxes/1(matchsticks) do
+  def boxes(matchsticks) do
+    big_boxes = div(matchsticks, 50)
+    rem_after_big = rem(matchsticks, 50)
+    medium_boxes = div(rem_after_big, 20)
+    rem_after_medium = rem(rem_after_big, 20)
+    small_boxes = div(rem_after_medium, 20)
+    remaining_sticks = rem(rem_after_medium, 20)
+    %{big: big_boxes, medium: medium_boxes, remaining_matchsticks: remaining_sticks, small: small_boxes}
+
   end
 
 end
