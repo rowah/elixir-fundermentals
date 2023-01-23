@@ -33,10 +33,17 @@ IO.puts "Your ability modifier is #{ability_modifier}"
 
 
 #Simple and Complex Maps
-%{
-  name: "James Rowa",
+
+user1 = %{
+  nameOne: "James Rowa",
   age: 29,
   programming_languages: ["JavaScript", "Elixir", "Python"],
   location: %{city: "Nairobi", country: "Kenya", county: "OmaBei"}
 }
-IO.puts
+
+#Pattern matching in maps
+abilities = %{strength: 16, dexterity: 12, intelligence: 10}
+%{dexterity: 12, intelligence: 10, strength: 16}
+%{dexterity: dexterity_value} = abilities
+%{dexterity: 12, intelligence: 10, strength: 16}
+IO.puts(dexterity_value) #12
