@@ -28,3 +28,5 @@ IO.puts "Your ability modifier is #{ability_modifier}"
 
 
 # The Inte- ger.parse/1 functions return a tuple for a successful parsing. The first element is the parsed value and the second item is the remaining text that wasn’t parsed. When the input can’t be parsed to an integer, the function doesn’t return a tuple; it returns an atom :error.
+
+# we didn’t need to capture a value during the match, we could use the special variable _ (an underscore). This acts like a variable but immediately discards any value given to it—in a pattern match, it is like a wildcard saying, “I’ll accept any value here
