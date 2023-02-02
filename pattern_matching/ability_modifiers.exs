@@ -44,6 +44,6 @@ user1 = %{
 #Pattern matching in maps
 abilities = %{strength: 16, dexterity: 12, intelligence: 10}
 %{dexterity: 12, intelligence: 10, strength: 16}
-%{dexterity: dexterity_value} = abilities
+%{dexterity: dexterity_value} = abilities #accessing the :dexterity and binding its value to the variable dexterity_value
 %{dexterity: 12, intelligence: 10, strength: 16}
 IO.puts(dexterity_value) #12
