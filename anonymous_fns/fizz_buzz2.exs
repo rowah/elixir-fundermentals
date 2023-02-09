@@ -41,3 +41,24 @@ defmodule FizzBuzz do
 end
 
 FizzBuzz.fizz_buzz(20)
+
+
+
+defmodule FizzBuzz2 do
+  def print_fizzbuzz(n) do
+    Enum.each(1..n, &print_number/1)
+  end
+
+  defp print_number(n) do
+    case {is_multiple(n, 3), is_multiple(n, 5)} do
+      {true, true} -> IO.puts "FizzBuzz"
+      {true, false} -> IO.puts "Fizz"
+      {false, true} -> IO.puts "Buzz"
+      {false, false} -> IO.puts "#{n}"
+    end
+  end
+
+  defp is_multiple(n, divisor) do
+    rem(n, divisor) == 0
+  end
+end
