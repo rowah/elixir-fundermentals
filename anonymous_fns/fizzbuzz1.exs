@@ -12,3 +12,38 @@ IO.puts fizz_buzz_third.(0, 0, 4)
 IO.puts fizz_buzz_third.(0, 2, 4)
 IO.puts fizz_buzz_third.(1, 0, 4)
 IO.puts fizz_buzz_third.(3, 6, 4)
+
+#2. Using if/else
+
+def fizz_buzz_third1(a, b, c) do
+  if a == 0 and b == 0 do
+    "FizzBuzz"
+  else
+    if a == 0 do
+      "Fizz"
+    else
+      if b == 0 do
+        "Buzz"
+      else
+        c
+      end
+    end
+  end
+end
+
+fizz_buzz_third = fn (a, b, c) ->
+  if a == 0 and b == 0, do: "FizzBuzz",
+  else
+    if a == 0, do: "Fizz",
+    else
+      if b == 0, do: "Buzz",
+      else: c
+    end
+  end
+end
+
+
+IO.puts fizz_buzz_third1(0, 0, 4)
+IO.puts fizz_buzz_third1(0, 2, 4)
+IO.puts fizz_buzz_third1(1, 0, 4)
+IO.puts fizz_buzz_third1(3, 6, 4)
