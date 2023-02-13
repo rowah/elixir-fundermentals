@@ -21,3 +21,14 @@ dave_greeter.() #Hello, Dave
 string_one = fn str -> (fn another_str -> IO.puts "#{str} #{another_str}" end) end
 string_two = string_one.("James")
 string_two.("Rowa") # James Rowa
+
+
+#Passing Functions as Arguments
+
+times_two = fn n -> n * 2 end
+fun_returner = fn (times_two, value) -> times_two.(value) end
+
+IO.puts fun_returner.(times_two, 21)
+
+list = [1, 2, 3, 4, 5]
+IO.puts Enum.map list, fn elem -> elem * 2 end
