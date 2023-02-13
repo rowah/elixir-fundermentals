@@ -1,18 +1,32 @@
+# # defmodule Times do
+# #   def triple(n) do
+# #     n * 3
+# #   end
+
+# # end
+
+
+
+# #can be written as
 # defmodule Times do
-#   def triple(n) do
-#     n * 3
-#   end
+#   def triple(n) do: n * 3
 
 # end
 
 
+# #OR
+# # defmodule Times, do: (def triple(n), do: n * 3)
 
-#can be written as
 defmodule Times do
-  def triple(n) do: n * 3
+  def double(n) do
+    n * 2
+  end
 
 end
 
+defmodule Quadruple do
+  def double_square(n) do
+    Times.double(n) * 2
+  end
 
-#OR
-# defmodule Times, do: (def triple(n), do: n * 3)
+end
