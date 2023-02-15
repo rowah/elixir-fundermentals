@@ -59,7 +59,7 @@ defmodule MatchstickFactory do
     small_boxes = div(remainder_after_medium, 5)
     remainder_after_small = rem(remainder_after_medium, 5)
 
-    %{"Big:" big_boxes, "Medium:" medium_boxes, "Small:" small_boxes, "remaining_matchsticks:" remainder_after_small}
+    IO.puts %{Big: big_boxes, Medium: medium_boxes, Small: small_boxes, remaining_matchsticks: remainder_after_small}
 
   end
 
