@@ -15,15 +15,24 @@
 #       price * (tax_rate + 1)
 #   end end
 
-  defmodule Chapt2.Solutions do
-    def total_price(no_of_slices, no_of_bottles, no_of_cakes) do
-      no_of_slices * 0.10 + no_of_bottles * 2.00 + no_of_cakes * 15
-    end
+  # defmodule Chapt2.Solutions do
+  #   def total_price(no_of_slices, no_of_bottles, no_of_cakes) do
+  #     no_of_slices * 0.10 + no_of_bottles * 2.00 + no_of_cakes * 15
+  #   end
 
-  end
+  # end
 
-  IO. puts Chapt2.Solutions.total_price(10, 3, 1)
+  # IO. puts Chapt2.Solutions.total_price(10, 3, 1)
 
 
 
 # Bob has traveled 200 km in four hours. Using variables, print a message showing his travel distance, time, and average velocity.
+
+distance = 200  # kilometers
+time = 4  # hours
+
+# Calculate average velocity
+average_velocity = distance / time
+
+# Print message
+IO.puts "Bob traveled #{distance} kilometers in #{time} hours, with an average velocity of #{average_velocity} kilometers per hour."
