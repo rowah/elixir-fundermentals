@@ -13,3 +13,10 @@ defmodule NumberCompare do
 
 end
 IO.puts NumberCompare.greater(8, 6)
+
+#using guard clauses
+defmodule NumberCompare2 do
+  def greater(x, y) when x >= y, do: x
+  def greater(_, y), do: y
+
+end
